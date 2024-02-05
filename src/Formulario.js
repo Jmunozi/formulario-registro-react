@@ -9,21 +9,20 @@ const Formulario = ({ onSubmit, onValidationError }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Validación de campos no vacíos
+
     if (!nombre.trim() || !email.trim()) {
-      // Llama a la función onValidationError si nombre o correo están en blanco
+
       onValidationError('Por favor, completa los campos de nombre y correo.');
       return;
     }
 
-    // Validación de contraseña
+
     if (password !== confirmPassword) {
-      // Llama a la función onValidationError si las contraseñas no coinciden
+
       onValidationError('Las contraseñas no coinciden.');
       return;
     }
 
-    // Llama a la función onSubmit con los datos del formulario
     onSubmit({ nombre, email, password, confirmPassword });
   };
 
