@@ -1,13 +1,12 @@
-// Importa los componentes necesarios en App.js
 import React, { useState } from 'react';
-import Registro from './Registro';  // Asegúrate de que la ruta sea correcta
+import Registro from './Registro';  
 
 const App = () => {
   const [alertMessage, setAlertMessage] = useState('');
   const [alertType, setAlertType] = useState('');
 
   const handleFormSubmit = ({ nombre, email, password, confirmPassword }) => {
-    // Lógica para validar y procesar el formulario
+
     if (email && password && password === confirmPassword) {
       setAlertMessage('Registro exitoso');
       setAlertType('success');
@@ -19,7 +18,7 @@ const App = () => {
 
   return (
     <div className="container justify-content-center mt-5">
-      <div class="d-flex">
+      <div class="d-flex justify-content-center">
       <Registro
         onFormSubmit={handleFormSubmit}
         alertMessage={alertMessage}
