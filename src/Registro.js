@@ -8,12 +8,12 @@ const Registro = ({ onFormSubmit }) => {
   const [alertType, setAlertType] = useState('');
 
   const handleSocialButtonClick = (provider) => {
-    // Lógica para el registro rápido con redes sociales
+
     console.log('Registro rápido con ' + provider);
   };
 
   const handleFormSubmit = ({ nombre, email, password, confirmPassword }) => {
-    // Lógica para validar y procesar el formulario
+
     if (email && password && password === confirmPassword) {
       setAlertMessage('Registro exitoso');
       setAlertType('success');
@@ -24,17 +24,19 @@ const Registro = ({ onFormSubmit }) => {
   };
 
   const handleValidationError = (message) => {
-    // Llama a esta función para manejar los mensajes de validación
+
     setAlertMessage(message);
     setAlertType('danger');
   };
 
   return (
-    <div>
+    <div className='cajaregistro'>
       <h1>Crea una cuenta</h1>
+      <div className='d-flex justify-content-center align-items-center'>
       <SocialButton image="/images/facebook.png" onClick={() => handleSocialButtonClick('Facebook')} />
       <SocialButton image="/images/github.png" onClick={() => handleSocialButtonClick('GitHub')} />
       <SocialButton image="/images/linkedin.png" onClick={() => handleSocialButtonClick('LinkedIn')} />
+      </div>
       <p>O usa tu email para registrarte</p>
       <Formulario onSubmit={handleFormSubmit} onValidationError={handleValidationError} />
       <Alert message={alertMessage} type={alertType} />
